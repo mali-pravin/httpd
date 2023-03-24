@@ -1,20 +1,17 @@
 # Base image
-FROM python:3.9
+FROM node:14-alpine
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements file to the container
-#COPY requirements.txt .
+# Install http-server globally
+RUN npm install -g http-server
 
-# Install the dependencies
-#RUN pip install --no-cache-dir
+# Copy the content to the container
+COPY . .
 
-# Copy the source code to the container
-#COPY . .
-
-# Expose port 8000 for the application
-EXPOSE 8000
+# Expose port 8080 for the application
+EXPOSE 8080
 
 # Run the application
-CMD ["python", "app.py"]
+CMD ["http-server", "-p", "8080"]
