@@ -16,3 +16,4 @@ EXPOSE 8080
 # Run the application
 CMD ["http-server", "-p", "8080"]
 
+
